@@ -1,4 +1,4 @@
-package com.elolink.gestao_b2b;
+package com.elolink.gestaob2b;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

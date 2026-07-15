@@ -1,6 +1,7 @@
-package com.elolink.gestao_b2b.entity;
+package com.elolink.gestaob2b.usuario;
 
 
+import com.elolink.gestaob2b.entidadebase.EntidadeBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -11,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "usuarios")
 @Getter
 @NoArgsConstructor
-public class Usuario extends EntidadeBase{
+public class Usuario extends EntidadeBase {
 
     @Column(nullable = false, length = 150)
     private String nome;
@@ -21,7 +22,6 @@ public class Usuario extends EntidadeBase{
 
     @Column(nullable = false)
     private boolean ativo;
-
 
 
 }
