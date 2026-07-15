@@ -2,9 +2,7 @@ package com.elolink.gestaob2b.usuario;
 
 
 import com.elolink.gestaob2b.entidadebase.EntidadeBase;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -22,6 +20,10 @@ public class Usuario extends EntidadeBase {
 
     @Column(nullable = false)
     private boolean ativo;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private PapelUsuario papel;
 
 
 }
