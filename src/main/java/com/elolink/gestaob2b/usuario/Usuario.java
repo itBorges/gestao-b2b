@@ -21,9 +21,6 @@ public class Usuario extends EntidadeBase {
     @Column(nullable = false)
     private boolean ativo;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private PapelUsuario papel;
 
 
 }
