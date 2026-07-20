@@ -1,6 +1,7 @@
 package com.elolink.gestaob2b.endereco;
 
 
+import com.elolink.gestaob2b.cliente.Cliente;
 import com.elolink.gestaob2b.entidadebase.EntidadeBase;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -8,7 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="Enderecos")
+@Table(name = "Enderecos")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Endereco extends EntidadeBase {
@@ -41,19 +42,23 @@ public class Endereco extends EntidadeBase {
     @Column(name = "ativo", nullable = false)
     private boolean ativo;
 
-    public Endereco(
-        TipoEndereco tipo,
-        String cep,
-        String logradouro,
-        String numero,
-        String bairro,
-        String cidade,
-        String estado
+    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @JoinColumn(name ="cliente_id",nullable = false)
+    private Cliente cliente;
 
-    ){
+    public Endereco(
+            TipoEndereco tipo,
+            String cep,
+            String logradouro,
+            String numero,
+            String bairro,
+            String cidade,
+            String estado
+
+    ) {
         this.tipo = tipo;
-        this.cep =cep;
-        this.logradouro =logradouro;
+        this.cep = cep;
+        this.logradouro = logradouro;
         this.numero = numero;
         this.bairro = bairro;
         this.cidade = cidade;
@@ -63,8 +68,8 @@ public class Endereco extends EntidadeBase {
 
     public void informarComplemento(
             String complemento
-    ){
-        this.complemento=complemento;
+    ) {
+        this.complemento = complemento;
     }
 
 }
