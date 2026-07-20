@@ -3,13 +3,14 @@ package com.elolink.gestaob2b.usuario;
 
 import com.elolink.gestaob2b.entidadebase.EntidadeBase;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "usuarios")
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Usuario extends EntidadeBase {
 
     @Column(nullable = false, length = 150)
