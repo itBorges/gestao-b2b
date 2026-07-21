@@ -13,18 +13,52 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Usuario extends EntidadeBase {
 
-    @Column(nullable = false, length = 150)
-    private String nome;
+    @Column(name = "nome_completo", nullable = false, length = 300)
+    private String nomeCompleto;
 
-    @Column(nullable = false, length = 254)
+    @Column(name = "cpf", nullable = false, length = 9)
+    private String cpf;
+
+    @Column(name = "matricula", nullable = false,length = 8)
+    private String matricula;
+
+    @Column(name = "telefone", nullable = false, length = 9)
+    private String telefone;
+
+    @Column(name = "email", length = 254)
     private String email;
 
-    @Column(nullable = false)
+    @Column(name = "ativo", nullable = false)
     private boolean ativo;
 
     @Enumerated(EnumType.STRING)
-    @Column (nullable = false)
+    @Column (name = "papel", nullable = false)
     private PapelUsuario papel;
 
+    public Usuario (
+        String nomeCompleto,
+        String cpf,
+        String matricula,
+        boolean ativo,
+        PapelUsuario papel
+    ){
+        this.ativo = ativo;
+        this.cpf = cpf;
+        this.matricula = matricula;
+        this.nomeCompleto = nomeCompleto;
+        this.papel = papel;
+    }
+
+    public void inserirEmail(
+            String email
+    ){
+        this.email = email;
+    }
+
+    public void inserirTelefone(
+            String telefone
+    ){
+        this.telefone = telefone;
+    }
 
 }
