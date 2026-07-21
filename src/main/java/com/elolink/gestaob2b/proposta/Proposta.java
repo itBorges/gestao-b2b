@@ -1,6 +1,7 @@
 package com.elolink.gestaob2b.proposta;
 
 
+import com.elolink.gestaob2b.entidadebase.EntidadeBase;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 @Table(name = "proposta")
 @NoArgsConstructor
 @Getter
-public class Proposta {
+public class Proposta extends EntidadeBase {
 
     @Column(name = "titulo", nullable = false)
     private String titulo;

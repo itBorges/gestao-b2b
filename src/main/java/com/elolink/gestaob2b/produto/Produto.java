@@ -1,6 +1,7 @@
 package com.elolink.gestaob2b.produto;
 
 
+import com.elolink.gestaob2b.entidadebase.EntidadeBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -12,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 
-public class Produto {
+public class Produto extends EntidadeBase {
 
     @Column(name = "sku",nullable = false, length = 100)
     private String sku;
