@@ -2,10 +2,12 @@ package com.elolink.gestaob2b.itemproposta;
 
 
 import com.elolink.gestaob2b.entidadebase.EntidadeBase;
+import com.elolink.gestaob2b.produto.Produto;
 import com.elolink.gestaob2b.proposta.Proposta;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import tools.jackson.databind.annotation.JsonAppend;
 
 import java.math.BigDecimal;
 
@@ -30,6 +32,10 @@ public class ItemProposta extends EntidadeBase {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "proposta_id", nullable = false)
     private Proposta proposta;
+
+    @ManyToOne(fetch =  FetchType.LAZY, optional = false)
+    @JoinColumn(name = "produto_id", nullable = false)
+    private Produto produto;
 
     public ItemProposta(
             Double valorUnitario,
