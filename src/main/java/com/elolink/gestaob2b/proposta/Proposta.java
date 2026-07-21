@@ -1,6 +1,7 @@
 package com.elolink.gestaob2b.proposta;
 
 
+import com.elolink.gestaob2b.cliente.Cliente;
 import com.elolink.gestaob2b.entidadebase.EntidadeBase;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -35,6 +36,10 @@ public class Proposta extends EntidadeBase {
 
     @Column(name = "ativo", nullable = false)
     private boolean ativo;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cliente_id", nullable = false)
+    private Cliente cliente;
 
     public Proposta(
             String titulo,
