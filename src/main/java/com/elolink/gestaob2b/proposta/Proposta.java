@@ -3,11 +3,14 @@ package com.elolink.gestaob2b.proposta;
 
 import com.elolink.gestaob2b.cliente.Cliente;
 import com.elolink.gestaob2b.entidadebase.EntidadeBase;
+import com.elolink.gestaob2b.itemproposta.ItemProposta;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "proposta")
@@ -40,6 +43,13 @@ public class Proposta extends EntidadeBase {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
+
+    @OneToMany(
+            mappedBy = "proposta",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<ItemProposta> itensProposta = new ArrayList<>();
 
     public Proposta(
             String titulo,
