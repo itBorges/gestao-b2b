@@ -1,11 +1,13 @@
 package com.elolink.gestaob2b.cliente;
 
 import com.elolink.gestaob2b.entidadebase.EntidadeBase;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import com.elolink.gestaob2b.proposta.Proposta;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -28,6 +30,9 @@ public class Cliente extends EntidadeBase {
 
     @Column(name = "numeroCelular", length = 9)
     private String numeroCelular;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Proposta> propostas = new ArrayList<>();
 
     public Cliente(
             String nomeFantasia,
