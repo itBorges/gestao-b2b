@@ -1,6 +1,7 @@
 package com.elolink.gestaob2b.itemproposta;
 
 
+import com.elolink.gestaob2b.entidadebase.EntidadeBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -13,7 +14,7 @@ import java.math.BigDecimal;
 @Table(name="item_proposta")
 @NoArgsConstructor
 @Getter
-public class ItemProposta {
+public class ItemProposta extends EntidadeBase {
 
     @Column(name = "valor_unitario",nullable = false )
     private Double valorUnitario;
