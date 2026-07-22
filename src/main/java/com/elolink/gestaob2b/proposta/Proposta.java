@@ -55,12 +55,14 @@ public class Proposta extends EntidadeBase {
             String titulo,
             StatusProposta status,
             Double valorSubtotal,
-            boolean ativo
+            boolean ativo,
+            Cliente cliente
     ) {
         this.ativo = ativo;
         this.status = status;
         this.valorSubtotal = valorSubtotal;
         this.titulo = titulo;
+        this.cliente = cliente;
     }
 
     public void inserirDescricao(
