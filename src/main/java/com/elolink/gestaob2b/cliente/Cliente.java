@@ -53,7 +53,7 @@ public class Cliente extends EntidadeBase {
         this.email = email;
     }
 
-    public void inserirTelefone(String numeroCelular) {
+    public void inserirTelefone(String telefone) {
         this.telefone = telefone;
     }
 
