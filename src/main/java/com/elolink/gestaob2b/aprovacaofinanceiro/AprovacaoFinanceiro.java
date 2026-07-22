@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class AprovacaoFinanceiro extends EntidadeBase {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="proposta_id", nullable = false)
+    @JoinColumn(name = "proposta_id", nullable = false)
     private Proposta proposta;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -22,7 +22,7 @@ public class AprovacaoFinanceiro extends EntidadeBase {
     private Usuario aprovadoPor;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "resultado_aprovacao",nullable = false)
+    @Column(name = "resultado_aprovacao", nullable = false)
     private ResultadoAprovacao resultadoAprovacao;
 
     @Column(name = "observacao", nullable = false, length = 2000)
@@ -30,16 +30,18 @@ public class AprovacaoFinanceiro extends EntidadeBase {
 
     public AprovacaoFinanceiro(
             Proposta proposta,
-            Usuario aprovadoPor
+            Usuario aprovadoPor,
+            ResultadoAprovacao resultadoAprovacao
 
-    ){
+    ) {
         this.aprovadoPor = aprovadoPor;
         this.proposta = proposta;
+        this.resultadoAprovacao = resultadoAprovacao;
     }
 
     public void inserirObservacao(
             String observacao
-    ){
+    ) {
         this.observacao = observacao;
     }
 
