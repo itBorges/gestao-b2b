@@ -8,6 +8,8 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "produtos")
 @Getter
@@ -15,13 +17,13 @@ import lombok.NoArgsConstructor;
 
 public class Produto extends EntidadeBase {
 
-    @Column(name = "sku",nullable = false, length = 100)
+    @Column(name = "sku", nullable = false, length = 100)
     private String sku;
 
     @Column(name = "codigoFabricante", length = 150)
     private String codigoFabricante;
 
-    @Column(name = "gtin", nullable = false , length = 14)
+    @Column(name = "gtin", nullable = false, length = 14)
     private String gtin;   //codigo de barras
 
     @Column(name = "nome", nullable = false, length = 255)
@@ -30,7 +32,7 @@ public class Produto extends EntidadeBase {
     @Column(name = "descricao", length = 255)
     private String descricao;
 
-    @Column(name = "marca",  length = 150)
+    @Column(name = "marca", length = 150)
     private String marca;
 
     @Column(name = "fabricante", nullable = false, length = 200)
@@ -39,11 +41,11 @@ public class Produto extends EntidadeBase {
     @Column(name = "categoria", nullable = false, length = 150)
     private String categoria;
 
-    @Column(name="ativo", nullable = false)
+    @Column(name = "ativo", nullable = false)
     private boolean ativo;
 
-    @Column(name="preco_base", nullable = false)
-    private Double precoBase;
+    @Column(name = "preco_base", nullable = false, precision = 19, scale = 2)
+    private BigDecimal precoBase;
 
     public Produto(
             String sku,
@@ -51,7 +53,7 @@ public class Produto extends EntidadeBase {
             String nome,
             String fabricante,
             String categoria,
-            Double precoBase,
+            BigDecimal precoBase,
             boolean ativo
 
     ) {
@@ -61,25 +63,25 @@ public class Produto extends EntidadeBase {
         this.fabricante = fabricante;
         this.sku = sku;
         this.precoBase = precoBase;
-        this.ativo =ativo;
+        this.ativo = ativo;
 
     }
 
     public void inserirCodigoFabricante(
             String codigoFabricante
     ) {
-        this.codigoFabricante  = codigoFabricante;
+        this.codigoFabricante = codigoFabricante;
     }
 
     public void inserirDescricao(
             String descricao
-    ){
+    ) {
         this.descricao = descricao;
     }
 
     public void inserirMarca(
             String marca
-    ){
+    ) {
         this.marca = marca;
     }
 
