@@ -16,23 +16,23 @@ public class Usuario extends EntidadeBase {
     @Column(name = "nome_completo", nullable = false, length = 300)
     private String nomeCompleto;
 
-    @Column(name = "cpf", nullable = false, length = 9)
+    @Column(name = "cpf", nullable = false, length = 11)
     private String cpf;
 
     @Column(name = "matricula", nullable = false,length = 8)
     private String matricula;
 
-    @Column(name = "telefone", nullable = false, length = 9)
+    @Column(name = "telefone", nullable = false, length = 11)
     private String telefone;
 
-    @Column(name = "email", length = 254)
+    @Column(name = "email", length = 320)
     private String email;
 
     @Column(name = "ativo", nullable = false)
     private boolean ativo;
 
     @Enumerated(EnumType.STRING)
-    @Column (name = "papel", nullable = false)
+    @Column (name = "papel", nullable = false, length = 20)
     private PapelUsuario papel;
 
     public Usuario (
