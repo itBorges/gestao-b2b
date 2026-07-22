@@ -3,6 +3,7 @@ package com.elolink.gestaob2b.usuario;
 
 import com.elolink.gestaob2b.entidadebase.EntidadeBase;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,7 +23,8 @@ public class Usuario extends EntidadeBase {
     @Column(name = "matricula", nullable = false,length = 8)
     private String matricula;
 
-    @Column(name = "telefone", nullable = false, length = 11)
+    @Pattern(regexp = "^[0-9]{10,11}$")
+    @Column(name = "telefone", length = 11)
     private String telefone;
 
     @Column(name = "email", length = 320)
