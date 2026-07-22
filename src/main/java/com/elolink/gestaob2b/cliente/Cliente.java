@@ -31,7 +31,7 @@ public class Cliente extends EntidadeBase {
     @Column(name = "numero_celular", length = 20)
     private String numeroCelular;
 
-    @OneToMany(mappedBy = "clientes")
+    @OneToMany(mappedBy = "cliente")
     private List<Proposta> propostas = new ArrayList<>();
 
     public Cliente(
