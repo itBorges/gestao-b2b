@@ -26,7 +26,7 @@ public class ItemProposta extends EntidadeBase {
     @Column(name = "valor_total", nullable = false, precision = 19, scale = 2)
     private BigDecimal valorTotal;
 
-    @Column(name = "observacao", nullable = false, length = 500)
+    @Column(name = "observacao", length = 500)
     private String observacao;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
