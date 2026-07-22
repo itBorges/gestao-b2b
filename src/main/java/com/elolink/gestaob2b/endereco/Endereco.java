@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Enderecos")
+@Table(name = "enderecos")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Endereco extends EntidadeBase {
