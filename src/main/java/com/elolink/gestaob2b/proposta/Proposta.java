@@ -9,11 +9,12 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "proposta")
+@Table(name = "propostas")
 @NoArgsConstructor
 @Getter
 public class Proposta extends EntidadeBase {
@@ -25,14 +26,14 @@ public class Proposta extends EntidadeBase {
     private String descricao;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status_proposta", nullable = false)
+    @Column(name = "status_proposta", nullable = false, length = 30)
     private StatusProposta status;
 
-    @Column(name = "valor_subtotal", nullable = false)
-    private Double valorSubtotal;
+    @Column(name = "valor_subtotal", nullable = false, precision = 19, scale = 2)
+    private BigDecimal valorSubtotal;
 
-    @Column(name = "valor_desconto")
-    private Double valorDesconto;
+    @Column(name = "valor_desconto", precision = 19, scale = 2)
+    private BigDecimal valorDesconto;
 
     @Column(name = "observacao", length = 500)
     private String observacao;
@@ -58,7 +59,7 @@ public class Proposta extends EntidadeBase {
     public Proposta(
             String titulo,
             StatusProposta status,
-            Double valorSubtotal,
+            BigDecimal valorSubtotal,
             boolean ativo,
             Cliente cliente,
             Usuario usuario
@@ -78,7 +79,7 @@ public class Proposta extends EntidadeBase {
     }
 
     public void inserirValorDesconto(
-            Double valorDesconto
+            BigDecimal valorDesconto
     ) {
         this.valorDesconto = valorDesconto;
     }
