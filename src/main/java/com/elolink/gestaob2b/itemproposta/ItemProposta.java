@@ -43,11 +43,11 @@ public class ItemProposta extends EntidadeBase {
             Proposta proposta,
             Produto produto
     ) {
-        this.quantidade = quantidade;
+        this.quantidade = quantidade.setScale(3, RoundingMode.HALF_UP);
         this.valorTotal = valorUnitario.multiply(quantidade).setScale(2, RoundingMode.HALF_UP);
         this.produto = produto;
         this.proposta = proposta;
-        this.valorUnitario = valorUnitario;
+        this.valorUnitario = valorUnitario.setScale(2, RoundingMode.HALF_UP);
     }
 
     public void inserirObservacao(
