@@ -22,7 +22,7 @@ public class Cliente extends EntidadeBase {
     @Column(name = "razao_social", nullable = false, length = 60)
     private String razaoSocial;
 
-    @Column(name = "cnpj", length = 14)
+    @Column(name = "cnpj", nullable = false, length = 14)
     private String cnpj;
 
     @Column(name = "email", length = 320)
