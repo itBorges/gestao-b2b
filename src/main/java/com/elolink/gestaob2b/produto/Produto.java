@@ -20,7 +20,7 @@ public class Produto extends EntidadeBase {
     @Column(name = "sku", nullable = false, length = 100)
     private String sku;
 
-    @Column(name = "codigoFabricante", length = 150)
+    @Column(name = "codigo_fabricante", length = 150)
     private String codigoFabricante;
 
     @Column(name = "gtin", nullable = false, length = 14)
