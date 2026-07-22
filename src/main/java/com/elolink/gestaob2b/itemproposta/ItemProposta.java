@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 @Entity
-@Table(name = "item_proposta")
+@Table(name = "itens_proposta")
 @NoArgsConstructor
 @Getter
 public class ItemProposta extends EntidadeBase {
@@ -47,6 +47,7 @@ public class ItemProposta extends EntidadeBase {
         this.valorTotal = valorUnitario.multiply(quantidade).setScale(2, RoundingMode.HALF_UP);
         this.produto = produto;
         this.proposta = proposta;
+        this.valorUnitario = valorUnitario;
     }
 
     public void inserirObservacao(
