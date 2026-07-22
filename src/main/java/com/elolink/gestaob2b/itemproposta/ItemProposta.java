@@ -16,14 +16,14 @@ import java.math.BigDecimal;
 @Getter
 public class ItemProposta extends EntidadeBase {
 
-    @Column(name = "valor_unitario", nullable = false)
-    private Double valorUnitario;
+    @Column(name = "valor_unitario", nullable = false, precision = 19, scale = 2)
+    private BigDecimal valorUnitario;
 
-    @Column(name = "quantidade", nullable = false)
+    @Column(name = "quantidade", nullable = false, precision = 19, scale = 3)
     private BigDecimal quantidade;
 
-    @Column(name = "valor_total", nullable = false)
-    private Double valorTotal;
+    @Column(name = "valor_total", nullable = false, precision = 19, scale = 2)
+    private BigDecimal valorTotal;
 
     @Column(name = "observacao", nullable = false, length = 500)
     private String observacao;
@@ -37,15 +37,13 @@ public class ItemProposta extends EntidadeBase {
     private Produto produto;
 
     public ItemProposta(
-            Double valorUnitario,
+            BigDecimal valorUnitario,
             BigDecimal quantidade,
-            Double valorTotal,
             Proposta proposta,
             Produto produto
     ) {
         this.quantidade = quantidade;
-        this.valorTotal = valorTotal;
-        this.valorUnitario = valorUnitario;
+        this.valorTotal = valorUnitario.multiply(quantidade).setScale()
         this.produto = produto;
         this.proposta = proposta;
     }
