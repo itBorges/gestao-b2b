@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 @Entity
 @Table(name = "item_proposta")
@@ -43,7 +44,7 @@ public class ItemProposta extends EntidadeBase {
             Produto produto
     ) {
         this.quantidade = quantidade;
-        this.valorTotal = valorUnitario.multiply(quantidade).setScale()
+        this.valorTotal = valorUnitario.multiply(quantidade).setScale(2, RoundingMode.HALF_UP);
         this.produto = produto;
         this.proposta = proposta;
     }
