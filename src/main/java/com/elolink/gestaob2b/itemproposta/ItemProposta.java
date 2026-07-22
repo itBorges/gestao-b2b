@@ -7,7 +7,6 @@ import com.elolink.gestaob2b.proposta.Proposta;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import tools.jackson.databind.annotation.JsonAppend;
 
 import java.math.BigDecimal;
 
@@ -33,19 +32,28 @@ public class ItemProposta extends EntidadeBase {
     @JoinColumn(name = "proposta_id", nullable = false)
     private Proposta proposta;
 
-    @ManyToOne(fetch =  FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "produto_id", nullable = false)
     private Produto produto;
 
     public ItemProposta(
             Double valorUnitario,
             BigDecimal quantidade,
-            Double valorTotal
+            Double valorTotal,
+            Proposta proposta,
+            Produto produto
     ) {
         this.quantidade = quantidade;
         this.valorTotal = valorTotal;
         this.valorUnitario = valorUnitario;
+        this.produto = produto;
+        this.proposta = proposta;
     }
 
+    public void inserirObservacao(
+            String observacao
+    ) {
+        this.observacao = observacao;
+    }
 
 }
