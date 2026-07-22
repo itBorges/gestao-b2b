@@ -28,10 +28,10 @@ public class Cliente extends EntidadeBase {
     @Column(name = "email", length = 320)
     private String email;
 
-    @Column(name = "numeroCelular", length = 9)
+    @Column(name = "numero_celular", length = 20)
     private String numeroCelular;
 
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "clientes")
     private List<Proposta> propostas = new ArrayList<>();
 
     public Cliente(
