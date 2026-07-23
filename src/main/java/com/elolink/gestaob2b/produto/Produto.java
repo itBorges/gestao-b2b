@@ -5,6 +5,7 @@ import com.elolink.gestaob2b.entidadebase.EntidadeBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -13,7 +14,7 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "produtos")
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 
 public class Produto extends EntidadeBase {
 

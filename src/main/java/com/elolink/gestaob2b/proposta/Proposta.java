@@ -6,6 +6,7 @@ import com.elolink.gestaob2b.entidadebase.EntidadeBase;
 import com.elolink.gestaob2b.itemproposta.ItemProposta;
 import com.elolink.gestaob2b.usuario.Usuario;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -15,7 +16,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "propostas")
-@NoArgsConstructor
+@NoArgsConstructor (access = AccessLevel.PROTECTED)
 @Getter
 public class Proposta extends EntidadeBase {
 
