@@ -9,23 +9,24 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 @Entity
-@Table(name = "item_proposta")
+@Table(name = "itens_proposta")
 @NoArgsConstructor
 @Getter
 public class ItemProposta extends EntidadeBase {
 
-    @Column(name = "valor_unitario", nullable = false)
-    private Double valorUnitario;
+    @Column(name = "valor_unitario", nullable = false, precision = 19, scale = 2)
+    private BigDecimal valorUnitario;
 
-    @Column(name = "quantidade", nullable = false)
+    @Column(name = "quantidade", nullable = false, precision = 19, scale = 3)
     private BigDecimal quantidade;
 
-    @Column(name = "valor_total", nullable = false)
-    private Double valorTotal;
+    @Column(name = "valor_total", nullable = false, precision = 19, scale = 2)
+    private BigDecimal valorTotal;
 
-    @Column(name = "observacao", nullable = false, length = 500)
+    @Column(name = "observacao", length = 500)
     private String observacao;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -37,17 +38,16 @@ public class ItemProposta extends EntidadeBase {
     private Produto produto;
 
     public ItemProposta(
-            Double valorUnitario,
+            BigDecimal valorUnitario,
             BigDecimal quantidade,
-            Double valorTotal,
             Proposta proposta,
             Produto produto
     ) {
-        this.quantidade = quantidade;
-        this.valorTotal = valorTotal;
-        this.valorUnitario = valorUnitario;
+        this.quantidade = quantidade.setScale(3, RoundingMode.HALF_UP);
+        this.valorTotal = valorUnitario.multiply(quantidade).setScale(2, RoundingMode.HALF_UP);
         this.produto = produto;
         this.proposta = proposta;
+        this.valorUnitario = valorUnitario.setScale(2, RoundingMode.HALF_UP);
     }
 
     public void inserirObservacao(

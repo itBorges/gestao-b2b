@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Enderecos")
+@Table(name = "enderecos")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Endereco extends EntidadeBase {
@@ -53,7 +53,8 @@ public class Endereco extends EntidadeBase {
             String numero,
             String bairro,
             String cidade,
-            String estado
+            String estado,
+            Cliente cliente
 
     ) {
         this.tipo = tipo;
@@ -63,6 +64,7 @@ public class Endereco extends EntidadeBase {
         this.bairro = bairro;
         this.cidade = cidade;
         this.estado = estado;
+        this.cliente = cliente;
 
     }
 

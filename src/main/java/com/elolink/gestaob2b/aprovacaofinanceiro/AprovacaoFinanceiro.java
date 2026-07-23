@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "aprovacao_financeiro")
+@Table(name = "aprovacoes_financeiras")
 @Getter
 @NoArgsConstructor
 public class AprovacaoFinanceiro extends EntidadeBase {
@@ -22,10 +22,10 @@ public class AprovacaoFinanceiro extends EntidadeBase {
     private Usuario aprovadoPor;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "resultado_aprovacao", nullable = false)
+    @Column(name = "resultado_aprovacao", nullable = false, length = 30)
     private ResultadoAprovacao resultadoAprovacao;
 
-    @Column(name = "observacao", nullable = false, length = 2000)
+    @Column(name = "observacao", length = 2000)
     private String observacao;
 
     public AprovacaoFinanceiro(

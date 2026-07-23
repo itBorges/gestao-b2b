@@ -3,6 +3,7 @@ package com.elolink.gestaob2b.cliente;
 import com.elolink.gestaob2b.entidadebase.EntidadeBase;
 import com.elolink.gestaob2b.proposta.Proposta;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -22,14 +23,15 @@ public class Cliente extends EntidadeBase {
     @Column(name = "razao_social", nullable = false, length = 60)
     private String razaoSocial;
 
-    @Column(name = "cnpj", length = 14)
+    @Column(name = "cnpj", nullable = false, length = 14)
     private String cnpj;
 
     @Column(name = "email", length = 320)
     private String email;
 
-    @Column(name = "numeroCelular", length = 9)
-    private String numeroCelular;
+    @Pattern(regexp = "^[0-9]{10,11}$")
+    @Column(name = "telefone", length = 11)
+    private String telefone;
 
     @OneToMany(mappedBy = "cliente")
     private List<Proposta> propostas = new ArrayList<>();
@@ -51,8 +53,8 @@ public class Cliente extends EntidadeBase {
         this.email = email;
     }
 
-    public void inserirNumeroCelular(String numeroCelular) {
-        this.numeroCelular = numeroCelular;
+    public void inserirTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
 
