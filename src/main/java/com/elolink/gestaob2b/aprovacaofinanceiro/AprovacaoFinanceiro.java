@@ -4,13 +4,14 @@ import com.elolink.gestaob2b.entidadebase.EntidadeBase;
 import com.elolink.gestaob2b.proposta.Proposta;
 import com.elolink.gestaob2b.usuario.Usuario;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "aprovacoes_financeiras")
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor (access = AccessLevel.PROTECTED)
 public class AprovacaoFinanceiro extends EntidadeBase {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
