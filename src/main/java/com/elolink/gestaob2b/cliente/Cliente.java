@@ -4,6 +4,7 @@ import com.elolink.gestaob2b.entidadebase.EntidadeBase;
 import com.elolink.gestaob2b.proposta.Proposta;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -14,7 +15,7 @@ import java.util.List;
 @Entity
 @Table(name = "clientes")
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor (access = AccessLevel.PROTECTED)
 public class Cliente extends EntidadeBase {
 
     @Column(name = "nome_fantasia", nullable = false, length = 120)

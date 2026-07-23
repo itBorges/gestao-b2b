@@ -5,6 +5,7 @@ import com.elolink.gestaob2b.entidadebase.EntidadeBase;
 import com.elolink.gestaob2b.produto.Produto;
 import com.elolink.gestaob2b.proposta.Proposta;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -13,7 +14,7 @@ import java.math.RoundingMode;
 
 @Entity
 @Table(name = "itens_proposta")
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 public class ItemProposta extends EntidadeBase {
 
